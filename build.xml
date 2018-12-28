@@ -129,9 +129,16 @@
 			<move todir="${debug.server}">
 				<fileset dir="${build.server}">
 					<include name="craftbukkit-*.jar"/>
-					<include name="spigot-*.jar"/>
 				</fileset>
+                <mapper type="glob" from="craftbukkit-*.jar" to="craftbukkit.jar"/>
 			</move>
+
+            <move todir="${debug.server}">
+                <fileset dir="${build.server}">
+                    <include name="spigot-*.jar"/>
+                </fileset>
+                <mapper type="glob" from="spigot-*.jar" to="spigot.jar"/>
+            </move>
 		</sequential>
 	</target>
 
