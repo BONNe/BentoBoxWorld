@@ -142,6 +142,15 @@
 		</sequential>
 	</target>
 
+    <target name="clear-server-build" description="This command removes BuildServer">
+        <property name="build.server" value="${directory.root}/buildserver"/>
+        <delete dir="${build.server}"/>
+    </target>
+
+    <target name="clear-server" description="This command removes BuildServer">
+        <property name="debug.server" value="${directory.root}/server"/>
+        <delete dir="${debug.server}"/>
+    </target>
 
     <macrodef name="git">
         <attribute name = "command" />
