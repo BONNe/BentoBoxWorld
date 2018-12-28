@@ -15,6 +15,7 @@
             ant bentobox-plugin
             ant bentobox-addons
             ant bentobox-complete
+			ant setup-test-server
         </echo>
     </target>
 
@@ -109,6 +110,31 @@
         <property name="bentoboxworld.branch" value="master" />
         <git.clone.pull tree.name="magiccobblestonegenerator" repository="${git.url}/MagicCobblestoneGenerator.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
+
+    <target name="setup-test-server" description="Download and setup latest Spigot server using BuildTools.">
+		<property name="build.server" value="${directory.root}/buildserver"/>
+		<property name="debug.server" value="${directory.root}/server"/>
+		<mkdir dir="${build.server}"/>
+
+		<sequential>
+			<get src="https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar" dest="${build.server}/BuildTools.jar" usetimestamp="false"/>
+
+			<java jar="${build.server}/BuildTools.jar" fork="true" failonerror="true" dir="${build.server}">
+				<arg value="--rev"/>
+				<arg value="latest"/>
+			</java>
+
+			<mkdir dir="${debug.server}"/>
+
+			<move todir="${debug.server}">
+				<fileset dir="${build.server}">
+					<include name="craftbukkit-*.jar"/>
+					<include name="spigot-*.jar"/>
+				</fileset>
+			</move>
+		</sequential>
+	</target>
+
 
     <macrodef name="git">
         <attribute name = "command" />
