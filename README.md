@@ -9,6 +9,7 @@ Usage:
  - ant bentobox-plugin - checkouts only bentobox plugin. It will be placed in plugin directory.
  - ant bentobox-addons - checkouts all official addons for BentoBox plugin. 
  - ant bentobox-complete - checkouts plugin and all addons.
+ - ant setup-test-server - downloads latest BuildTools and create latest server.
 	
 Configuration also contains separate checkout scripts for each addon.
 
