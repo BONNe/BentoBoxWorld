@@ -33,6 +33,8 @@
     <target name="bentobox-addons" description="Checkout BentoBoxWorld official addons">
         <antcall target="checkout-acidisland"/>
         <antcall target="checkout-bskyblock"/>
+        <antcall target="checkout-caveblock"/>
+        <antcall target="checkout-skygrid"/>
         <antcall target="checkout-biomes"/>
         <antcall target="checkout-level"/>
         <antcall target="checkout-challenges"/>
@@ -42,72 +44,96 @@
         <antcall target="checkout-invswitcher"/>
         <antcall target="checkout-advancements"/>
         <antcall target="checkout-magiccobblestonegenerator"/>
+        <antcall target="checkout-greenhouses"/>
     </target>
 
+    <target name="checkout-caveblock" description="Checkout CaveBlock Addon">
+        <mkdir dir="${addons.root}"/>
+        <property name="bentoboxworld.branch" value="master" />
+        <git.clone.pull tree.name="caveblock" repository="${git.url}/CaveBlock.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
+    </target>
+
+    <target name="checkout-greenhouses" description="Checkout GreenHouses Addon">
+        <mkdir dir="${addons.root}"/>
+        <property name="bentoboxworld.branch" value="master" />
+        <git.clone.pull tree.name="greenhouses" repository="${git.url}/Greenhouses.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
+    </target>
+
+    <target name="checkout-skygrid" description="Checkout SkyGrid Addon">
+        <mkdir dir="${addons.root}"/>
+        <property name="bentoboxworld.branch" value="master" />
+        <git.clone.pull tree.name="skygrid" repository="${git.url}/SkyGrid.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
+    </target>
 
     <target name="checkout-acidisland" description="Checkout AcidIsland Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="acidisland" repository="${git.url}/AcidIsland.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
+    </target>
+
+    <target name="checkout-schem-panel" description="Checkout schem-panel Addon">
+        <mkdir dir="${addons.root}"/>
+        <property name="bentoboxworld.branch" value="develop" />
+        <git.clone.pull tree.name="schem-panel" repository="${git.url}/schem-panel.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-bskyblock" description="Checkout BSkyBlock Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="bskyblock" repository="${git.url}/BSkyBlock.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-biomes" description="Checkout Biomes Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="biomes" repository="${git.url}/addon-biomes.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-level" description="Checkout Level Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="level" repository="${git.url}/Level.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-challenges" description="Checkout Challenges Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="challenges" repository="${git.url}/addon-challenges.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-islandfly" description="Checkout IslandFly Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="islandfly" repository="${git.url}/IslandFly.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-welcomewarpsigns" description="Checkout WelcomeWarpSings Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="welcomewarpsigns" repository="${git.url}/addon-welcomewarpsigns.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-limits" description="Checkout Limits Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="limits" repository="${git.url}/addon-limits.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-invswitcher" description="Checkout InvSwitcher Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="invswitcher" repository="${git.url}/addon-invSwitcher.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-advancements" description="Checkout Advancements Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="advancements" repository="${git.url}/Advancements.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
     <target name="checkout-magiccobblestonegenerator" description="Checkout MagicCobblestoneGenerator Addon">
         <mkdir dir="${addons.root}"/>
-        <property name="bentoboxworld.branch" value="master" />
+        <property name="bentoboxworld.branch" value="develop" />
         <git.clone.pull tree.name="magiccobblestonegenerator" repository="${git.url}/MagicCobblestoneGenerator.git" branch="${bentoboxworld.branch}" output.directory="${addons.root}"/>
     </target>
 
