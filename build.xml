@@ -45,6 +45,7 @@
         <antcall target="checkout-advancements"/>
         <antcall target="checkout-magiccobblestonegenerator"/>
         <antcall target="checkout-greenhouses"/>
+        <antcall target="checkout-schem-panel"/>
     </target>
 
     <target name="checkout-caveblock" description="Checkout CaveBlock Addon">
